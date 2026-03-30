@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { JsonLd } from "@/components/JsonLd";
 import { NewsletterForm } from "@/components/ui/NewsletterForm";
 import { MerchPreview } from "./_components/MerchPreview";
 
@@ -14,6 +15,20 @@ const linkTertiary = `inline-flex items-center justify-center font-semibold roun
 export default function HomePage() {
   return (
     <>
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          name: "Christian Knuckleheads",
+          url: "https://christianknuckleheads.com",
+          description:
+            "Real faith for real people who mess up. Daily devotionals, community, and merchandise.",
+          publisher: {
+            "@type": "Person",
+            name: "Mitch",
+          },
+        }}
+      />
       <section
         className="bg-[var(--color-surface)] section-padding"
         aria-labelledby="hero-heading"

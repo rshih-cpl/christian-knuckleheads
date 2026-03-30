@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { JsonLd } from "@/components/JsonLd";
 import { TestimonialCard } from "@/components/ui/TestimonialCard";
 import { books, getBook } from "@/lib/books";
 import { OrderForm } from "./_components/OrderForm";
@@ -47,6 +48,24 @@ export default async function BookPage({ params }: { params: Promise<{ slug: str
 
   return (
     <>
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "Book",
+          name: book.title,
+          description: book.description,
+          author: {
+            "@type": "Person",
+            name: "Mitch",
+          },
+          offers: {
+            "@type": "Offer",
+            price: book.price,
+            priceCurrency: "USD",
+            availability: "https://schema.org/InStock",
+          },
+        }}
+      />
       {/* Hero */}
       <section className="bg-[var(--color-surface)] section-padding">
         <div className="container-site">

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { JsonLd } from "@/components/JsonLd";
 import { NewsletterForm } from "@/components/ui/NewsletterForm";
 
 export const metadata: Metadata = {
@@ -16,6 +17,16 @@ const linkPrimary = `inline-flex items-center justify-center gap-2 font-semibold
 export default function AboutPage() {
   return (
     <>
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "Person",
+          name: "Mitch",
+          description:
+            "Author, recovered corporate climber, and founder of Christian Knuckleheads.",
+          url: "https://christianknuckleheads.com/about",
+        }}
+      />
       {/* Hero */}
       <section
         className="bg-[var(--color-surface)] section-padding"

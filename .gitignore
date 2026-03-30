@@ -41,3 +41,5 @@ next-env.d.ts
 # design reference files
 /public/design-reference/
 /design-source/
+
+.vercel
