@@ -1,0 +1,199 @@
+@import "tailwindcss";
+
+/* ============================================
+   DESIGN SYSTEM: The Modern Manuscript
+   Christian Knuckleheads - Editorial Devotional
+   ============================================ */
+
+@theme {
+  --font-headline: var(--font-newsreader), Georgia, "Times New Roman", serif;
+  --font-body: var(--font-manrope), "Helvetica Neue", Arial, sans-serif;
+
+  --color-primary: #13395f;
+  --color-primary-container: #2e5077;
+  --color-primary-fixed: #d2e4ff;
+  --color-primary-fixed-dim: #a8c9f6;
+  --color-on-primary: #ffffff;
+  --color-on-primary-container: #a1c2f0;
+
+  --color-secondary: #7a5649;
+  --color-secondary-container: #fdcdbc;
+  --color-secondary-fixed: #ffdbcf;
+  --color-on-secondary: #ffffff;
+  --color-on-secondary-container: #795548;
+  --color-on-secondary-fixed: #2e150b;
+  --color-on-secondary-fixed-variant: #603f33;
+
+  --color-tertiary: #3c3630;
+  --color-tertiary-container: #534d46;
+
+  --color-surface: #f9f9fb;
+  --color-surface-bright: #f9f9fb;
+  --color-surface-dim: #d9dadc;
+  --color-surface-container: #edeef0;
+  --color-surface-container-low: #f3f3f6;
+  --color-surface-container-high: #e8e8ea;
+  --color-surface-container-highest: #e2e2e5;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-tint: #3f6088;
+  --color-surface-variant: #e2e2e5;
+
+  --color-on-surface: #1a1c1e;
+  --color-on-surface-variant: #43474e;
+
+  --color-outline: #73777f;
+  --color-outline-variant: #c3c6cf;
+
+  --color-inverse-surface: #2e3133;
+  --color-inverse-on-surface: #f0f0f3;
+  --color-inverse-primary: #a8c9f6;
+
+  --color-error: #ba1a1a;
+  --color-error-container: #ffdad6;
+  --color-on-error: #ffffff;
+  --color-on-error-container: #93000a;
+
+  --color-background: #f9f9fb;
+  --color-on-background: #1a1c1e;
+}
+
+/* Base styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-on-surface);
+  background-color: var(--color-surface);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Typography utilities */
+.text-display-lg {
+  font-family: var(--font-headline);
+  font-size: clamp(2.25rem, 4vw + 1rem, 4rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  font-weight: 400;
+}
+
+.text-headline-md {
+  font-family: var(--font-headline);
+  font-size: clamp(1.5rem, 2.5vw + 0.5rem, 2.25rem);
+  line-height: 1.2;
+  font-weight: 400;
+}
+
+.text-headline-sm {
+  font-family: var(--font-headline);
+  font-size: clamp(1.25rem, 2vw + 0.25rem, 1.75rem);
+  line-height: 1.25;
+  font-weight: 400;
+}
+
+.text-title-sm {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.text-body-lg {
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 0.5vw + 0.875rem, 1.25rem);
+  line-height: 1.6;
+}
+
+.text-body-md {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.text-label-md {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  line-height: 1.4;
+  color: var(--color-on-surface-variant);
+}
+
+/* Container */
+.container-site {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding-left: clamp(1rem, 3vw, 4rem);
+  padding-right: clamp(1rem, 3vw, 4rem);
+}
+
+/* Section spacing */
+.section-padding {
+  padding-top: clamp(3rem, 6vw, 5rem);
+  padding-bottom: clamp(3rem, 6vw, 5rem);
+}
+
+/* Glassmorphism */
+.glass {
+  background: rgba(249, 249, 251, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Ghost border for inputs */
+.ghost-border {
+  border: none;
+  border-bottom: 1px solid rgba(195, 198, 207, 0.15);
+}
+
+/* Ambient shadow */
+.shadow-ambient {
+  box-shadow: 0 20px 40px rgba(26, 28, 30, 0.06);
+}
+
+/* Focus visible */
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 4px;
+}
+
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Skip to content */
+.skip-to-content {
+  position: absolute;
+  top: -100%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  padding: 0.75rem 1.5rem;
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+  font-weight: 600;
+  border-radius: 0 0 0.25rem 0.25rem;
+  transition: top 0.2s;
+}
+
+.skip-to-content:focus {
+  top: 0;
+}
+
+/* Material Icons */
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 300, "GRAD" 0, "opsz" 24;
+}
+
+/* Gradient for hero/CTA */
+.gradient-primary {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-container));
+}
+
+/* Max width for readable body text */
+.max-w-prose-custom {
+  max-width: 65ch;
+}
