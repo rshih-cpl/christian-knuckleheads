@@ -4,6 +4,7 @@ export interface Book {
   subtitle: string;
   description: string;
   price: number;
+  coverImage: string;
   features: { icon: string; title: string; description: string }[];
   testimonials: { quote: string; name: string; role: string }[];
   retailers: { name: string; icon: string; url: string }[];
@@ -17,6 +18,8 @@ export const books: Record<string, Book> = {
     description:
       "Real faith for real people who mess up. A 365-day journey through the awkward, the honest, and the undeniably holy moments of being human.",
     price: 32,
+    coverImage:
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuAaXcYuyOnZ_WFwe_ut3nr5G-BTJu5z-DV-9mXPmaxDGrh2-AwFmkgyxIMdTeNfNP6DvjxOGpPkZ1IDWI2iNvv1BTq2L6jepOzVAS3hHP2LQqcH0DWb3v-was2nVPZYTOWs5Y8nM7Lq-F_rRbx640VolHjFxF1b0UPDoeWenr618PoeQCAXax-O90sgqq7Fu38lSf4x1M_5oJYiYfocemffgp6Om5H3pZyTRPwILw0r_wVIjRFU95ALf3NQx_bRUvHIhusfizFR-8o",
     features: [
       {
         icon: "auto_stories",

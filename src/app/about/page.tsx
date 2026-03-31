@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { JsonLd } from "@/components/JsonLd";
 import { NewsletterForm } from "@/components/ui/NewsletterForm";
+import { siteImages } from "@/lib/images";
 
 export const metadata: Metadata = {
   title: "About the Author",
@@ -46,12 +48,14 @@ export default function AboutPage() {
 
             <div className="order-2 lg:col-span-5 lg:col-start-8 lg:row-span-2 lg:row-start-1 lg:self-end">
               <div className="shadow-ambient relative aspect-[4/5] overflow-hidden rounded-[4px] bg-[var(--color-surface-container-high)] lg:rotate-[2deg] lg:transition-transform lg:duration-700 lg:hover:rotate-0">
-                <div className="flex h-full w-full items-center justify-center bg-[var(--color-surface-container-low)]">
-                  <span className="material-symbols-outlined text-7xl text-[var(--color-outline)]" aria-hidden="true">
-                    person
-                  </span>
-                </div>
-                <span className="sr-only">Author portrait placeholder</span>
+                <Image
+                  src={siteImages.authorAbout}
+                  alt="Portrait of Mitch, founder of Christian Knuckleheads"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 40vw"
+                  className="object-cover grayscale hover:grayscale-0 transition-all duration-1000"
+                  priority
+                />
               </div>
             </div>
 

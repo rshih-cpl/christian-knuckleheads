@@ -1,7 +1,9 @@
+import Image from "next/image";
 import Link from "next/link";
 import { JsonLd } from "@/components/JsonLd";
 import { NewsletterForm } from "@/components/ui/NewsletterForm";
 import { MerchPreview } from "./_components/MerchPreview";
+import { siteImages } from "@/lib/images";
 
 const focusRing =
   "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--color-primary)]";
@@ -66,11 +68,15 @@ export default function HomePage() {
                 className="absolute inset-0 -z-10 scale-110 translate-x-4 rounded-full bg-[var(--color-secondary)]/5 blur-3xl lg:translate-x-10"
                 aria-hidden="true"
               />
-              <div className="shadow-ambient flex aspect-[3/4] items-center justify-center rounded-[4px] bg-[var(--color-surface-container-low)]">
-                <span className="material-symbols-outlined text-7xl text-[var(--color-outline)]" aria-hidden="true">
-                  menu_book
-                </span>
-                <span className="sr-only">Book cover placeholder</span>
+              <div className="shadow-ambient relative aspect-[3/4] overflow-hidden rounded-[4px] bg-[var(--color-surface-container-low)] md:rotate-3 hover:rotate-0 transition-transform duration-500">
+                <Image
+                  src={siteImages.bookCoverHome}
+                  alt="Daily Devotions for the Christian Knucklehead book cover"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover"
+                  priority
+                />
               </div>
             </div>
           </div>
@@ -137,12 +143,13 @@ export default function HomePage() {
           <div className="flex flex-col items-center gap-12 lg:flex-row lg:items-center lg:gap-16">
             <div className="relative w-full shrink-0 lg:w-5/12">
               <div className="shadow-ambient relative z-10 aspect-[4/5] overflow-hidden rounded-[4px] bg-[var(--color-surface-container-low)]">
-                <div className="flex h-full w-full items-center justify-center bg-[var(--color-secondary)]/10">
-                  <span className="material-symbols-outlined text-7xl text-[var(--color-outline)]" aria-hidden="true">
-                    person
-                  </span>
-                </div>
-                <span className="sr-only">Author photo placeholder</span>
+                <Image
+                  src={siteImages.authorHome}
+                  alt="Mitch - Author of Christian Knuckleheads"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 40vw"
+                  className="object-cover grayscale mix-blend-multiply opacity-90"
+                />
               </div>
             </div>
             <div className="w-full lg:w-7/12">

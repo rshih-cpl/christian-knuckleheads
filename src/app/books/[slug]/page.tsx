@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { JsonLd } from "@/components/JsonLd";
@@ -88,15 +89,15 @@ export default async function BookPage({ params }: { params: Promise<{ slug: str
                 className="absolute inset-0 bg-[var(--color-secondary-container)] rounded-[4px] -z-0 translate-y-3 -translate-x-3 opacity-90"
                 aria-hidden
               />
-              <div
-                className="relative z-10 aspect-[3/4] rounded-[4px] bg-[var(--color-surface-container-high)] shadow-ambient flex flex-col items-center justify-center gap-3 p-8 text-center"
-                role="img"
-                aria-label="Book cover placeholder"
-              >
-                <span className="material-symbols-outlined text-5xl text-[var(--color-primary)]" aria-hidden="true">
-                  menu_book
-                </span>
-                <span className="text-headline-sm text-[var(--color-primary)] italic leading-tight">{book.title}</span>
+              <div className="relative z-10 aspect-[3/4] rounded-[4px] overflow-hidden shadow-ambient translate-x-1 -translate-y-1">
+                <Image
+                  src={book.coverImage}
+                  alt={`${book.title} book cover`}
+                  fill
+                  sizes="(max-width: 1024px) 280px, 40vw"
+                  className="object-cover"
+                  priority
+                />
               </div>
             </div>
           </div>
