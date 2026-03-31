@@ -89,13 +89,13 @@ export default async function BookPage({ params }: { params: Promise<{ slug: str
                 className="absolute inset-0 bg-[var(--color-secondary-container)] rounded-[4px] -z-0 translate-y-3 -translate-x-3 opacity-90"
                 aria-hidden
               />
-              <div className="relative z-10 aspect-[3/4] rounded-[4px] overflow-hidden shadow-ambient translate-x-1 -translate-y-1">
+              <div className="relative z-10 aspect-[3/4] rounded-[4px] overflow-hidden shadow-ambient translate-x-1 -translate-y-1 bg-[#6b9ab8]">
                 <Image
-                  src={book.coverImage}
-                  alt={`${book.title} book cover`}
+                  src="/images/book-cover.png"
+                  alt="Daily Devotions for Christian Knuckleheads by Mitch O'Neil — book cover featuring a pink brain with a halo holding an upside-down Bible"
                   fill
                   sizes="(max-width: 1024px) 280px, 40vw"
-                  className="object-cover"
+                  className="object-contain"
                   priority
                 />
               </div>

@@ -68,13 +68,13 @@ export default function HomePage() {
                 className="absolute inset-0 -z-10 scale-110 translate-x-4 rounded-full bg-[var(--color-secondary)]/5 blur-3xl lg:translate-x-10"
                 aria-hidden="true"
               />
-              <div className="shadow-ambient relative aspect-[3/4] overflow-hidden rounded-[4px] bg-[var(--color-surface-container-low)] md:rotate-3 hover:rotate-0 transition-transform duration-500">
+              <div className="shadow-ambient relative aspect-[3/4] overflow-hidden rounded-[4px] bg-[#6b9ab8] md:rotate-3 hover:rotate-0 transition-transform duration-500">
                 <Image
-                  src={siteImages.bookCoverHome}
-                  alt="Daily Devotions for the Christian Knucklehead book cover"
+                  src="/images/book-cover.png"
+                  alt="Daily Devotions for Christian Knuckleheads by Mitch O'Neil — book cover featuring a pink brain with a halo holding an upside-down Bible"
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"
-                  className="object-cover"
+                  className="object-contain"
                   priority
                 />
               </div>
