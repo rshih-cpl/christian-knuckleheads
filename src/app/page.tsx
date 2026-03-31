@@ -144,11 +144,11 @@ export default function HomePage() {
             <div className="relative w-full shrink-0 lg:w-5/12">
               <div className="shadow-ambient relative z-10 aspect-[4/5] overflow-hidden rounded-[4px] bg-[var(--color-surface-container-low)]">
                 <Image
-                  src={siteImages.authorHome}
-                  alt="Mitch - Author of Christian Knuckleheads"
+                  src="/images/author-mitch.png"
+                  alt="Mitch O'Neil holding a copy of Daily Devotions for Christian Knuckleheads"
                   fill
                   sizes="(max-width: 1024px) 100vw, 40vw"
-                  className="object-cover grayscale mix-blend-multiply opacity-90"
+                  className="object-cover"
                 />
               </div>
             </div>

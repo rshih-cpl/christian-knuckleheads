@@ -49,11 +49,11 @@ export default function AboutPage() {
             <div className="order-2 lg:col-span-5 lg:col-start-8 lg:row-span-2 lg:row-start-1 lg:self-end">
               <div className="shadow-ambient relative aspect-[4/5] overflow-hidden rounded-[4px] bg-[var(--color-surface-container-high)] lg:rotate-[2deg] lg:transition-transform lg:duration-700 lg:hover:rotate-0">
                 <Image
-                  src={siteImages.authorAbout}
-                  alt="Portrait of Mitch, founder of Christian Knuckleheads"
+                  src="/images/author-mitch.png"
+                  alt="Mitch O'Neil, author of Daily Devotions for Christian Knuckleheads"
                   fill
                   sizes="(max-width: 1024px) 100vw, 40vw"
-                  className="object-cover grayscale hover:grayscale-0 transition-all duration-1000"
+                  className="object-cover"
                   priority
                 />
               </div>
