@@ -13,7 +13,7 @@ export interface Book {
 export const books: Record<string, Book> = {
   "daily-devotionals": {
     slug: "daily-devotionals",
-    title: "Daily Devotions for the Christian Knucklehead",
+    title: "Daily Devotions for Christian Knuckleheads",
     subtitle: "Wisdom for the rest of us",
     description:
       "Real faith for real people who mess up. A 365-day journey through the awkward, the honest, and the undeniably holy moments of being human.",

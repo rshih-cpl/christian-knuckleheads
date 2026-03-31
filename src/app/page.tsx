@@ -45,7 +45,7 @@ export default function HomePage() {
                 id="hero-heading"
                 className="text-display-lg text-balance text-[var(--color-primary)]"
               >
-                Daily Devotions for the Christian Knucklehead
+                Daily Devotions for Christian Knuckleheads
               </h1>
               <p className="text-body-lg mt-6 max-w-prose-custom text-[var(--color-on-surface-variant)]">
                 Real faith for real people who mess up. A 365-day journey through the awkward, the honest, and the
