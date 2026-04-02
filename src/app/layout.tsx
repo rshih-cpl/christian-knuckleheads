@@ -3,12 +3,12 @@ import { newsreader, manrope } from "@/lib/fonts";
 import "@/styles/globals.css";
 import { NavBar } from "@/components/NavBar";
 import { Footer } from "@/components/Footer";
-import { ChatWidget } from "@/components/ChatWidget";
+import { BottomNav } from "@/components/BottomNav";
 import { ToastProvider } from "@/components/Toast";
 
 export const metadata: Metadata = {
   title: {
-    default: "Christian Knuckleheads | Daily Devotionals",
+    default: "Christian Knuckleheads | Iron & Ink",
     template: "%s | Christian Knuckleheads",
   },
   description:
@@ -22,22 +22,22 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${newsreader.variable} ${manrope.variable}`}>
+    <html lang="en" className={`dark ${newsreader.variable} ${manrope.variable}`}>
       <head>
         <link
           rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap"
         />
       </head>
-      <body className="bg-[var(--color-surface)] text-[var(--color-on-surface)] antialiased">
+      <body className="bg-[var(--color-surface)] text-[var(--color-on-surface)] antialiased overflow-x-hidden">
         <a href="#main-content" className="skip-to-content">
           Skip to content
         </a>
         <ToastProvider>
           <NavBar />
-          <main id="main-content">{children}</main>
+          <main id="main-content" className="pb-16 md:pb-0">{children}</main>
           <Footer />
-          <ChatWidget />
+          <BottomNav />
         </ToastProvider>
       </body>
     </html>

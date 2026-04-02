@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { Button } from "@/components/ui/Button";
 
 interface NewsletterFormProps {
   compact?: boolean;
@@ -9,7 +8,9 @@ interface NewsletterFormProps {
 
 export function NewsletterForm({ compact }: NewsletterFormProps) {
   const [email, setEmail] = useState("");
-  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [status, setStatus] = useState<
+    "idle" | "loading" | "success" | "error"
+  >("idle");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -31,7 +32,10 @@ export function NewsletterForm({ compact }: NewsletterFormProps) {
   if (status === "success") {
     return (
       <p className="text-body-md text-[var(--color-primary)] font-semibold">
-        <span className="material-symbols-outlined align-middle mr-1" aria-hidden="true">
+        <span
+          className="material-symbols-outlined align-middle mr-1"
+          aria-hidden="true"
+        >
           check_circle
         </span>
         Welcome to the collective!
@@ -40,8 +44,14 @@ export function NewsletterForm({ compact }: NewsletterFormProps) {
   }
 
   return (
-    <form onSubmit={handleSubmit} className={`flex ${compact ? "flex-col sm:flex-row" : "flex-col sm:flex-row"} gap-3`}>
-      <label htmlFor={compact ? "footer-email" : "section-email"} className="sr-only">
+    <form
+      onSubmit={handleSubmit}
+      className={`flex ${compact ? "flex-col sm:flex-row" : "flex-col md:flex-row"} gap-0 w-full`}
+    >
+      <label
+        htmlFor={compact ? "footer-email" : "section-email"}
+        className="sr-only"
+      >
         Email address
       </label>
       <input
@@ -49,16 +59,20 @@ export function NewsletterForm({ compact }: NewsletterFormProps) {
         type="email"
         required
         aria-required="true"
-        placeholder="Your email address"
+        placeholder="YOUR EMAIL ADDRESS"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
-        className="flex-1 px-4 py-2.5 bg-[var(--color-surface-container-low)] text-[var(--color-on-surface)] placeholder:text-[var(--color-outline)] ghost-border rounded-[4px] text-sm focus-visible:outline-2 focus-visible:outline-[var(--color-primary)]"
+        className="flex-grow bg-[var(--color-surface-container-low)] border-none focus:ring-1 focus:ring-[var(--color-primary-container)] text-sm tracking-widest px-6 md:px-8 py-5 md:py-6 placeholder:text-white/20 text-[var(--color-on-surface)] font-[family-name:var(--font-body)]"
       />
-      <Button type="submit" loading={status === "loading"} size={compact ? "md" : "lg"}>
-        Subscribe
-      </Button>
+      <button
+        type="submit"
+        disabled={status === "loading"}
+        className="bg-[var(--color-primary-container)] text-[var(--color-on-primary-container)] px-8 md:px-12 py-5 md:py-6 font-bold uppercase tracking-widest text-sm hover:brightness-110 transition-all disabled:opacity-50 shrink-0"
+      >
+        {status === "loading" ? "..." : "Subscribe"}
+      </button>
       {status === "error" && (
-        <p className="text-sm text-[var(--color-error)]" role="alert">
+        <p className="text-sm text-[var(--color-error)] mt-2" role="alert">
           Something went wrong. Please try again.
         </p>
       )}

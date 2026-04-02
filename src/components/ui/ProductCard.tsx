@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import { useToast } from "@/components/Toast";
-import { Button } from "@/components/ui/Button";
 import type { Product } from "@/lib/products";
 
 interface ProductCardProps {
@@ -13,7 +12,7 @@ export function ProductCard({ product }: ProductCardProps) {
   const { addToast } = useToast();
 
   return (
-    <article className="group bg-[var(--color-surface)] hover:bg-[var(--color-surface-container-low)] transition-colors duration-200 rounded-[4px] overflow-hidden">
+    <article className="group bg-[var(--color-surface)] hover:bg-[var(--color-surface-container-high)] transition-colors duration-200 overflow-hidden">
       <div className="aspect-[3/4] bg-[var(--color-surface-container-low)] relative overflow-hidden">
         <Image
           src={product.image}
@@ -24,19 +23,22 @@ export function ProductCard({ product }: ProductCardProps) {
         />
       </div>
       <div className="p-4 lg:p-6">
-        <h3 className="text-title-sm text-[var(--color-on-surface)]">{product.name}</h3>
-        <p className="text-label-md mt-1">{product.description}</p>
+        <h3 className="text-title-sm text-[var(--color-on-surface)]">
+          {product.name}
+        </h3>
+        <p className="text-[10px] text-white/40 mt-1 uppercase tracking-widest">
+          {product.description}
+        </p>
         <div className="flex items-center justify-between mt-4">
           <span className="text-body-md font-semibold text-[var(--color-on-surface)]">
             ${product.price}
           </span>
-          <Button
-            variant="secondary"
-            size="sm"
+          <button
             onClick={() => addToast(`${product.name} added to bag`)}
+            className="border border-[var(--color-primary-container)] text-[var(--color-on-surface)] px-4 py-2 text-xs font-bold uppercase tracking-widest hover:bg-[var(--color-primary-container)] hover:text-[var(--color-on-primary-container)] transition-colors"
           >
-            Add to Bag
-          </Button>
+            Add
+          </button>
         </div>
       </div>
     </article>

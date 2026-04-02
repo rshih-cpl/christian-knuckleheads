@@ -2,12 +2,14 @@
 
 import { useState, useEffect, useCallback, useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 
 const navLinks = [
-  { href: "/books/daily-devotionals", label: "Book" },
-  { href: "/about", label: "About" },
+  { href: "/", label: "Home" },
+  { href: "/books/daily-devotionals", label: "The Book" },
   { href: "/merch", label: "Merch" },
+  { href: "/about", label: "About" },
 ];
 
 export function NavBar() {
@@ -64,53 +66,59 @@ export function NavBar() {
 
   return (
     <>
-      <header className="sticky top-0 z-50 glass" role="banner">
+      <header
+        className="fixed top-0 left-0 right-0 z-50 bg-[var(--color-surface)] transition-colors duration-300"
+        role="banner"
+      >
         <nav
-          className="container-site flex items-center justify-between h-16 lg:h-20"
+          className="flex items-center justify-between w-full px-6 lg:px-8 py-3"
           role="navigation"
           aria-label="Main navigation"
         >
-          <Link
-            href="/"
-            className="font-[family-name:var(--font-headline)] text-xl lg:text-2xl font-semibold text-[var(--color-on-surface)] hover:text-[var(--color-primary)] transition-colors duration-150"
-          >
-            Knuckleheads
+          <Link href="/" className="shrink-0">
+            <Image
+              src="/images/ck-logo.png"
+              alt="Christian Knuckleheads"
+              width={160}
+              height={64}
+              className="h-14 lg:h-16 w-auto"
+              priority
+            />
           </Link>
 
-          {/* Desktop nav */}
-          <div className="hidden lg:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-10">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 aria-current={isActive(link.href) ? "page" : undefined}
-                className={`text-body-md transition-colors duration-150 ${
+                className={`font-[family-name:var(--font-headline)] tracking-tight transition-colors duration-300 ${
                   isActive(link.href)
-                    ? "text-[var(--color-primary)] font-semibold"
-                    : "text-[var(--color-on-surface)] hover:text-[var(--color-primary)]"
+                    ? "text-[#D32F2F] border-b-2 border-[#D32F2F] pb-1"
+                    : "text-white/70 hover:text-white"
                 }`}
               >
                 {link.label}
               </Link>
             ))}
-            <Link
-              href="#newsletter"
-              className="px-5 py-2.5 bg-[var(--color-primary)] text-[var(--color-on-primary)] text-sm font-semibold rounded-[4px] hover:bg-[var(--color-primary-container)] transition-colors duration-150"
-            >
-              Subscribe
-            </Link>
           </div>
 
-          {/* Hamburger button */}
           <button
             ref={hamburgerRef}
-            className="lg:hidden p-2 text-[var(--color-on-surface)] hover:text-[var(--color-on-surface-variant)]"
+            className="md:hidden p-2 text-white/70 hover:text-white"
             onClick={() => setIsOpen(!isOpen)}
             aria-expanded={isOpen}
             aria-controls="mobile-menu"
             aria-label={isOpen ? "Close menu" : "Open menu"}
           >
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+            >
               {isOpen ? (
                 <path d="M6 6l12 12M6 18L18 6" />
               ) : (
@@ -121,7 +129,9 @@ export function NavBar() {
         </nav>
       </header>
 
-      {/* Mobile menu — rendered outside header to avoid sticky context issues */}
+      {/* Spacer for fixed nav */}
+      <div className="h-[76px] lg:h-[88px]" />
+
       {isOpen && (
         <div
           id="mobile-menu"
@@ -129,27 +139,31 @@ export function NavBar() {
           role="dialog"
           aria-modal="true"
           aria-label="Mobile navigation"
-          className="fixed inset-0 z-[60] lg:hidden"
+          className="fixed inset-0 z-[60] md:hidden"
         >
-          {/* Backdrop — tap to close */}
           <div
             className="absolute inset-0 bg-[var(--color-surface)]/95 backdrop-blur-md"
             onClick={closeMenu}
             aria-hidden="true"
           />
 
-          {/* Close button pinned top-right */}
           <button
-            className="absolute top-4 right-4 z-10 p-3 text-[var(--color-on-surface)]"
+            className="absolute top-4 right-4 z-10 p-3 text-white"
             onClick={closeMenu}
             aria-label="Close menu"
           >
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+            >
               <path d="M6 6l12 12M6 18L18 6" />
             </svg>
           </button>
 
-          {/* Nav links */}
           <div className="relative z-10 flex flex-col items-center justify-center h-full gap-10 px-6">
             {navLinks.map((link) => (
               <Link
@@ -157,22 +171,15 @@ export function NavBar() {
                 href={link.href}
                 onClick={closeMenu}
                 aria-current={isActive(link.href) ? "page" : undefined}
-                className={`text-2xl font-[family-name:var(--font-headline)] transition-colors duration-150 ${
+                className={`text-2xl font-[family-name:var(--font-headline)] tracking-tight transition-colors duration-300 ${
                   isActive(link.href)
-                    ? "text-[var(--color-primary)] font-semibold"
-                    : "text-[var(--color-on-surface)] hover:text-[var(--color-primary)]"
+                    ? "text-[#D32F2F] font-bold"
+                    : "text-white/70 hover:text-white"
                 }`}
               >
                 {link.label}
               </Link>
             ))}
-            <Link
-              href="#newsletter"
-              onClick={closeMenu}
-              className="mt-4 px-10 py-3.5 bg-[var(--color-primary)] text-[var(--color-on-primary)] text-lg font-semibold rounded-[4px] hover:bg-[var(--color-primary-container)] transition-colors duration-150"
-            >
-              Subscribe
-            </Link>
           </div>
         </div>
       )}

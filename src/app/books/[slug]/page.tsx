@@ -3,21 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { JsonLd } from "@/components/JsonLd";
-import { TestimonialCard } from "@/components/ui/TestimonialCard";
 import { books, getBook } from "@/lib/books";
 import { OrderForm } from "./_components/OrderForm";
-
-const btnFocus =
-  "focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--color-primary)]";
-
-const primaryLink =
-  `inline-flex items-center justify-center font-semibold rounded-[4px] transition-colors duration-150 ${btnFocus} bg-[var(--color-primary)] text-[var(--color-on-primary)] hover:bg-[var(--color-primary-container)] px-8 py-3 text-base`;
-
-const secondaryLink =
-  `inline-flex items-center justify-center font-semibold rounded-[4px] transition-colors duration-150 ${btnFocus} bg-[var(--color-surface-container-high)] text-[var(--color-primary)] hover:bg-[var(--color-surface-container-highest)] px-8 py-3 text-base`;
-
-const retailerLink =
-  `inline-flex w-full lg:w-auto lg:flex-1 min-w-0 items-center justify-center gap-2 font-semibold rounded-[4px] transition-colors duration-150 ${btnFocus} bg-[var(--color-surface-container-high)] text-[var(--color-primary)] hover:bg-[var(--color-surface-container-highest)] px-5 py-3 text-sm`;
 
 export async function generateStaticParams() {
   return Object.keys(books).map((slug) => ({ slug }));
@@ -31,13 +18,14 @@ export async function generateMetadata({
   const { slug } = await params;
   const book = getBook(slug);
   if (!book) return {};
-  return {
-    title: book.title,
-    description: book.description,
-  };
+  return { title: book.title, description: book.description };
 }
 
-export default async function BookPage({ params }: { params: Promise<{ slug: string }> }) {
+export default async function BookPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
   const { slug } = await params;
   const book = getBook(slug);
   if (!book) notFound();
@@ -55,10 +43,7 @@ export default async function BookPage({ params }: { params: Promise<{ slug: str
           "@type": "Book",
           name: book.title,
           description: book.description,
-          author: {
-            "@type": "Person",
-            name: "Mitch",
-          },
+          author: { "@type": "Person", name: "Mitch" },
           offers: {
             "@type": "Offer",
             price: book.price,
@@ -67,121 +52,183 @@ export default async function BookPage({ params }: { params: Promise<{ slug: str
           },
         }}
       />
+
       {/* Hero */}
-      <section className="bg-[var(--color-surface)] section-padding">
-        <div className="container-site">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
-            <div className="lg:col-span-7 order-2 lg:order-1">
-              <span className="text-title-sm text-[var(--color-secondary)] block mb-4">New Release</span>
-              <h1 className="text-display-lg text-[var(--color-primary)] italic mb-6">{book.title}</h1>
-              <p className="text-body-lg text-[var(--color-on-surface-variant)] max-w-xl mb-8">{book.description}</p>
-              <div className="flex flex-col sm:flex-row flex-wrap gap-4">
-                <Link href="#direct-purchase" className={primaryLink}>
-                  Order Direct Edition
-                </Link>
-                <Link href="#retailers" className={secondaryLink}>
-                  Find Online
-                </Link>
-              </div>
-            </div>
-            <div className="lg:col-span-5 order-1 lg:order-2 relative mx-auto w-full max-w-[280px] lg:max-w-none">
-              <div
-                className="absolute inset-0 bg-[var(--color-secondary-container)] rounded-[4px] -z-0 translate-y-3 -translate-x-3 opacity-90"
-                aria-hidden
-              />
-              <div className="relative z-10 aspect-[3/4] rounded-[4px] overflow-hidden shadow-ambient translate-x-1 -translate-y-1 bg-[#6b9ab8]">
-                <Image
-                  src="/images/book-cover.png"
-                  alt="Daily Devotions for Christian Knuckleheads by Mitch O'Neil — book cover featuring a pink brain with a halo holding an upside-down Bible"
-                  fill
-                  sizes="(max-width: 1024px) 280px, 40vw"
-                  className="object-contain"
-                  priority
-                />
-              </div>
-            </div>
+      <section className="relative flex flex-col md:flex-row items-center px-6 md:px-8 py-16 md:py-24 gap-12 md:gap-16 overflow-hidden">
+        <div className="absolute top-0 right-0 w-1/2 h-full bg-[var(--color-surface-container-low)] -z-10 translate-x-1/4 skew-x-[-12deg] hidden md:block" />
+        <div className="w-full md:w-1/2 flex flex-col gap-6 md:gap-8 max-w-7xl mx-auto md:mx-0">
+          <div className="flex items-center gap-3">
+            <span className="w-12 h-[1px] bg-[var(--color-primary-container)]" />
+            <span className="text-title-sm text-[var(--color-primary)]">
+              Now Available
+            </span>
           </div>
+          <h1 className="font-[family-name:var(--font-headline)] text-[2.5rem] md:text-[5.5rem] leading-[0.9] font-extrabold tracking-tighter">
+            Wisdom for the <br />
+            <span className="italic text-[var(--color-primary-container)]">
+              rest of us.
+            </span>
+          </h1>
+          <p className="text-body-lg text-[var(--color-secondary)] max-w-md leading-relaxed">
+            A raw, unfiltered journey through faith, failure, and the messy
+            reality of being human. No polish, just the Gospel in the trenches.
+          </p>
+          <div className="flex gap-4 mt-4">
+            <Link
+              href="#direct-purchase"
+              className="px-8 md:px-10 py-4 bg-[var(--color-primary-container)] text-[var(--color-on-primary-container)] font-bold hover:brightness-110 transition-all uppercase tracking-widest text-sm text-center"
+            >
+              Order Now
+            </Link>
+            <Link
+              href="#inside"
+              className="px-8 md:px-10 py-4 border border-[var(--color-outline)] text-[var(--color-on-surface)] font-bold hover:bg-[var(--color-surface-container-high)] transition-all uppercase tracking-widest text-sm text-center"
+            >
+              Read Excerpt
+            </Link>
+          </div>
+        </div>
+        <div className="w-full md:w-1/2 relative flex justify-center">
+          <div className="relative z-10 shadow-[40px_40px_80px_rgba(0,0,0,0.6)]">
+            <Image
+              src="/images/book-cover.png"
+              alt="Daily Devotions for Christian Knuckleheads book cover"
+              width={400}
+              height={533}
+              className="w-[280px] md:w-[400px] h-auto"
+              priority
+            />
+          </div>
+          <div className="absolute -top-12 -right-12 w-64 h-64 border-[20px] border-[var(--color-surface-container-highest)] -z-0 opacity-20 hidden md:block" />
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section className="bg-[var(--color-surface-container-low)] section-padding">
-        <div className="container-site">
-          <h2 className="text-headline-md text-[var(--color-primary)] italic text-center mb-10 lg:mb-14">
-            Praise for the book
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
-            {book.testimonials.map((t) => (
-              <TestimonialCard key={`${t.name}-${t.role}`} quote={t.quote} name={t.name} role={t.role} />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Book details */}
-      <section className="bg-[var(--color-surface)] section-padding">
-        <div className="container-site">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
-            <div>
-              <h2 className="text-headline-md text-[var(--color-primary)] italic mb-6">{book.subtitle}</h2>
-              <p className="text-body-lg text-[var(--color-on-surface-variant)] italic max-w-prose-custom">
-                {book.description}
+      {/* The Mission */}
+      <section className="bg-[var(--color-surface-container-low)] px-6 md:px-8 py-24 md:py-32 flex flex-col items-center text-center">
+        <span className="text-title-sm tracking-widest text-[var(--color-primary-container)] mb-6">
+          The Mission
+        </span>
+        <h2 className="font-[family-name:var(--font-headline)] text-3xl md:text-5xl lg:text-7xl font-bold mb-12 max-w-4xl leading-tight">
+          A field guide for the messy <br className="hidden md:block" />
+          and the questioning.
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 text-left max-w-6xl w-full">
+          {[
+            {
+              title: "Unfiltered Truth",
+              body: "We stop pretending we have it all together. This isn't about being perfect; it's about being present in the chaos.",
+            },
+            {
+              title: "Honest Doubt",
+              body: "Questions are the heartbeat of growth. We lean into the hard stuff instead of running for the easy answers.",
+            },
+            {
+              title: "Rugged Faith",
+              body: "Built for the long haul. A faith that can survive the storms because it's anchored in something bigger than us.",
+            },
+          ].map((card) => (
+            <div
+              key={card.title}
+              className="p-8 bg-[var(--color-surface-container)] border-l-4 border-[var(--color-primary-container)]"
+            >
+              <h3 className="font-[family-name:var(--font-headline)] text-2xl mb-4">
+                {card.title}
+              </h3>
+              <p className="text-[var(--color-secondary)] leading-relaxed">
+                {card.body}
               </p>
             </div>
-            <div>
-              <p className="text-title-sm text-[var(--color-secondary)] mb-6">Inside the Pages</p>
-              <ul className="grid grid-cols-1 gap-4 sm:gap-5">
-                {book.features.map((f) => (
-                  <li
-                    key={f.title}
-                    className="rounded-[4px] bg-[var(--color-surface-container)] p-6 shadow-ambient"
-                  >
-                    <div className="flex gap-4">
-                      <span
-                        className="material-symbols-outlined text-3xl text-[var(--color-secondary)] shrink-0"
-                        aria-hidden="true"
-                      >
-                        {f.icon}
-                      </span>
-                      <div>
-                        <h3 className="text-body-md font-semibold text-[var(--color-primary)]">{f.title}</h3>
-                        <p className="text-body-md text-[var(--color-on-surface-variant)] mt-1">{f.description}</p>
-                      </div>
-                    </div>
-                  </li>
-                ))}
-              </ul>
+          ))}
+        </div>
+      </section>
+
+      {/* Inside the Pages */}
+      <section
+        id="inside"
+        className="px-6 md:px-8 py-24 md:py-32 scroll-mt-24"
+      >
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-16 md:gap-24">
+          <div className="w-full md:w-1/2">
+            <div className="relative aspect-[4/5] bg-[var(--color-surface-container-highest)] overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-surface)] via-transparent to-transparent z-10" />
+              <Image
+                src="/images/book-cover.png"
+                alt="Inside the pages"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-contain p-8"
+              />
+            </div>
+          </div>
+          <div className="w-full md:w-1/2 flex flex-col gap-10">
+            <h2 className="font-[family-name:var(--font-headline)] text-4xl md:text-6xl font-extrabold leading-tight">
+              Meticulously <br />
+              Crafted.
+            </h2>
+            <div className="flex flex-col gap-8">
+              {[
+                {
+                  icon: "calendar_today",
+                  title: "365 Daily Devotions",
+                  desc: "A full year of daily readings designed to challenge your perspective and ground your morning in grit and grace.",
+                },
+                {
+                  icon: "menu_book",
+                  title: "Premium Canvas Binding",
+                  desc: "Tactile, heavy-duty canvas cover that feels like a field journal. Built to be carried, used, and worn down.",
+                },
+                {
+                  icon: "edit_note",
+                  title: "Reflection Space",
+                  desc: "Wide margins and dedicated sections for your own field notes, prayers, and questions.",
+                },
+              ].map((f) => (
+                <div key={f.title} className="flex items-start gap-6">
+                  <span className="material-symbols-outlined text-[var(--color-primary-container)] text-4xl shrink-0">
+                    {f.icon}
+                  </span>
+                  <div>
+                    <h4 className="font-[family-name:var(--font-headline)] text-2xl mb-2">
+                      {f.title}
+                    </h4>
+                    <p className="text-[var(--color-secondary)]">{f.desc}</p>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
-      {/* Retailers */}
+      {/* Shop Retailers */}
       <section
         id="retailers"
-        className="bg-[var(--color-surface-container-low)] section-padding scroll-mt-24"
-        aria-labelledby="retailers-heading"
+        className="bg-[var(--color-surface-container-lowest)] py-24 md:py-32 px-6 md:px-8 scroll-mt-24"
       >
-        <div className="container-site">
-          <h2 id="retailers-heading" className="text-headline-md text-[var(--color-primary)] italic text-center mb-10">
-            Buy Online
-          </h2>
-          <div className="flex flex-col lg:flex-row lg:flex-wrap gap-3 lg:gap-4 lg:justify-center">
-            {book.retailers.map((r) => (
+        <div className="max-w-6xl mx-auto">
+          <div className="flex flex-col md:flex-row justify-between items-end gap-8 md:gap-12 border-b border-[var(--color-outline-variant)] pb-12 mb-16">
+            <div>
+              <span className="text-title-sm tracking-widest text-[var(--color-primary-container)] mb-4 block">
+                Availability
+              </span>
+              <h2 className="font-[family-name:var(--font-headline)] text-4xl md:text-5xl font-bold">
+                Shop Retailers
+              </h2>
+            </div>
+            <p className="text-[var(--color-secondary)] max-w-sm mb-2">
+              Support local or go global. Find the Knucklehead guide at these
+              major book sellers.
+            </p>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-4 md:gap-8">
+            {["Amazon", "B&N", "Walmart", "BAM!", "Kindle"].map((name) => (
               <a
-                key={r.name}
-                href={r.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                data-retailer={r.name}
-                className={retailerLink}
+                key={name}
+                href="#"
+                className="group bg-[var(--color-surface-container-low)] p-8 md:p-10 flex items-center justify-center grayscale hover:grayscale-0 hover:bg-[var(--color-surface-container-high)] transition-all border-b-2 border-transparent hover:border-[var(--color-primary-container)]"
               >
-                <span className="material-symbols-outlined shrink-0" aria-hidden="true">
-                  {r.icon}
-                </span>
-                <span className="truncate">{r.name}</span>
-                <span className="material-symbols-outlined text-lg shrink-0" aria-hidden="true">
-                  open_in_new
+                <span className="text-lg md:text-xl font-bold font-[family-name:var(--font-headline)] group-hover:text-white">
+                  {name}
                 </span>
               </a>
             ))}
@@ -189,80 +236,54 @@ export default async function BookPage({ params }: { params: Promise<{ slug: str
         </div>
       </section>
 
-      {/* Direct purchase */}
+      {/* Autographed Direct */}
       <section
         id="direct-purchase"
-        className="bg-[var(--color-surface)] section-padding scroll-mt-24"
-        aria-labelledby="direct-heading"
+        className="px-6 md:px-8 py-24 md:py-32 scroll-mt-24"
       >
-        <div className="container-site">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
-            <div>
-              <h2 id="direct-heading" className="text-headline-md text-[var(--color-primary)] italic mb-6">
-                Autographed Direct Edition
-              </h2>
-              <p className="text-body-md text-[var(--color-on-surface-variant)] mb-8 max-w-prose-custom">
-                Get a personally signed copy delivered directly from the author. Each direct order includes a handwritten
-                note of encouragement for your own journey.
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24">
+          <div className="flex flex-col gap-8">
+            <h2 className="font-[family-name:var(--font-headline)] text-4xl md:text-5xl font-bold">
+              Autographed Direct
+            </h2>
+            <p className="text-[var(--color-secondary)] text-lg leading-relaxed">
+              Want a signed copy with a personal note from the author? We handle
+              direct orders via Zelle or Venmo. Each book is inspected,
+              hand-signed, and shipped directly from our field office.
+            </p>
+            <div className="bg-[var(--color-primary-container)]/10 p-8 border-l-4 border-[var(--color-primary-container)]">
+              <div className="flex justify-between items-center mb-4">
+                <span className="text-title-sm tracking-widest text-[var(--color-primary-container)]">
+                  Price Per Copy
+                </span>
+                <span className="text-3xl font-[family-name:var(--font-headline)] font-bold text-white">
+                  {priceFormatted}
+                </span>
+              </div>
+              <p className="text-sm text-[var(--color-secondary)] italic">
+                Includes flat-rate shipping within the continental U.S.
               </p>
-              <div className="rounded-[4px] bg-[var(--color-surface-container-low)] p-6 lg:p-8 mb-8">
-                <p className="text-title-sm text-[var(--color-outline)] mb-6">The direct order process</p>
-                <ol className="space-y-5 list-none m-0 p-0">
-                  <li className="flex gap-4">
-                    <span
-                      className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[var(--color-secondary-container)] text-[var(--color-on-secondary-container)] text-sm font-bold"
-                      aria-hidden
-                    >
-                      1
-                    </span>
-                    <p className="text-body-md text-[var(--color-on-surface)] pt-0.5">
-                      Submit your order details using the form provided.
-                    </p>
-                  </li>
-                  <li className="flex gap-4">
-                    <span
-                      className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[var(--color-secondary-container)] text-[var(--color-on-secondary-container)] text-sm font-bold"
-                      aria-hidden
-                    >
-                      2
-                    </span>
-                    <p className="text-body-md text-[var(--color-on-surface)] pt-0.5">
-                      <span className="font-semibold">We will email you a payment request</span> via Zelle or Venmo.
-                    </p>
-                  </li>
-                  <li className="flex gap-4">
-                    <span
-                      className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[var(--color-secondary-container)] text-[var(--color-on-secondary-container)] text-sm font-bold"
-                      aria-hidden
-                    >
-                      3
-                    </span>
-                    <p className="text-body-md text-[var(--color-on-surface)] pt-0.5">
-                      Once paid, your copy is signed and shipped within 48 hours.
-                    </p>
-                  </li>
-                </ol>
-              </div>
-              <p className="text-display-lg text-[var(--color-primary)] italic mb-6">{priceFormatted}</p>
-              <div className="flex flex-col gap-4">
-                <div className="flex items-center gap-3">
-                  <span className="material-symbols-outlined text-[var(--color-secondary)]" aria-hidden="true">
-                    payments
-                  </span>
-                  <span className="text-title-sm text-[var(--color-on-surface)]">Zelle / Venmo Only</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <span className="material-symbols-outlined text-[var(--color-secondary)]" aria-hidden="true">
-                    local_shipping
-                  </span>
-                  <span className="text-title-sm text-[var(--color-on-surface)]">Free Shipping (US Only)</span>
-                </div>
-              </div>
             </div>
-            <div className="rounded-[4px] bg-[var(--color-surface-container-low)] p-6 lg:p-10 shadow-ambient">
-              <p className="text-title-sm text-[var(--color-primary)] mb-8">Order details</p>
-              <OrderForm />
+            <div className="flex gap-10 mt-4 opacity-70">
+              {["Author Signed", "Personal Note", "Direct Support"].map(
+                (badge) => (
+                  <div key={badge} className="flex items-center gap-2">
+                    <span className="material-symbols-outlined text-[var(--color-primary-container)]">
+                      check_circle
+                    </span>
+                    <span className="text-[10px] tracking-widest uppercase font-bold">
+                      {badge}
+                    </span>
+                  </div>
+                )
+              )}
             </div>
+          </div>
+          <div className="bg-[var(--color-surface-container)] p-8 md:p-12 border-t-4 border-[var(--color-primary-container)]">
+            <p className="text-title-sm text-[var(--color-primary)] mb-8">
+              Order details
+            </p>
+            <OrderForm />
           </div>
         </div>
       </section>
