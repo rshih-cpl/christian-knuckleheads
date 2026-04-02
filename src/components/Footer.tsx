@@ -1,5 +1,5 @@
-import Link from "next/link";
 import Image from "next/image";
+import { FooterNav, ShareButton } from "./FooterClient";
 
 export function Footer() {
   return (
@@ -7,7 +7,7 @@ export function Footer() {
       className="bg-[#1A1C1E] w-full px-6 lg:px-8 py-16 mt-24 border-t border-[var(--color-primary-container)]/15"
       role="contentinfo"
     >
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-12">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 gap-12 lg:grid-cols-[auto_1fr_auto] lg:gap-16">
         <div className="max-w-xs">
           <Image
             src="/images/ck-logo-transparent.png"
@@ -22,30 +22,8 @@ export function Footer() {
           </p>
         </div>
 
-          <div className="flex flex-wrap gap-x-16 gap-y-12">
-          <nav className="flex flex-col gap-4" aria-label="Footer resources">
-            <span className="text-[10px] tracking-[0.2em] uppercase text-[var(--color-primary)] font-[family-name:var(--font-body)] font-bold mb-2">
-              Resources
-            </span>
-            <Link
-              href="/books/daily-devotionals"
-              className="text-white/60 hover:text-[var(--color-primary-container)] transition-colors font-[family-name:var(--font-body)]"
-            >
-              The Book
-            </Link>
-            <Link
-              href="/merch"
-              className="text-white/60 hover:text-[var(--color-primary-container)] transition-colors font-[family-name:var(--font-body)]"
-            >
-              Merch
-            </Link>
-            <Link
-              href="/about"
-              className="text-white/60 hover:text-[var(--color-primary-container)] transition-colors font-[family-name:var(--font-body)]"
-            >
-              About
-            </Link>
-          </nav>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-y-10 gap-x-16">
+          <FooterNav />
           <div className="flex flex-col gap-4">
             <span className="text-[10px] tracking-[0.2em] uppercase text-[var(--color-primary)] font-[family-name:var(--font-body)] font-bold mb-2">
               Legal
@@ -63,7 +41,7 @@ export function Footer() {
               Terms of Service
             </a>
             <a
-              href="mailto:hello@cknuckleheads.com"
+              href="mailto:hello@christianknuckleheads.com"
               className="text-white/60 hover:text-[var(--color-primary-container)] transition-colors font-[family-name:var(--font-body)]"
             >
               Contact
@@ -77,29 +55,23 @@ export function Footer() {
               Nashville, Tennessee
             </span>
             <a
-              href="mailto:hello@cknuckleheads.com"
+              href="mailto:hello@christianknuckleheads.com"
               className="text-white/60 hover:text-[var(--color-primary-container)] transition-colors font-[family-name:var(--font-body)]"
             >
-              hello@cknuckleheads.com
+              hello@christianknuckleheads.com
             </a>
           </div>
         </div>
 
-        <div className="w-full md:w-auto pt-12 md:pt-0 border-t md:border-t-0 border-white/5">
+        <div className="pt-8 lg:pt-0 border-t lg:border-t-0 border-white/5">
           <p className="font-[family-name:var(--font-body)] text-[10px] text-white/40 tracking-widest uppercase">
             &copy; {new Date().getFullYear()} Christian Knuckleheads. All Rights
             Reserved.
           </p>
           <div className="flex gap-4 mt-6">
+            <ShareButton />
             <a
-              href="#"
-              aria-label="Share"
-              className="w-10 h-10 border border-[var(--color-outline-variant)] flex items-center justify-center hover:bg-[var(--color-primary-container)] transition-colors cursor-pointer text-white/60 hover:text-white"
-            >
-              <span className="material-symbols-outlined text-sm">share</span>
-            </a>
-            <a
-              href="mailto:hello@cknuckleheads.com"
+              href="mailto:hello@christianknuckleheads.com"
               aria-label="Email"
               className="w-10 h-10 border border-[var(--color-outline-variant)] flex items-center justify-center hover:bg-[var(--color-primary-container)] transition-colors cursor-pointer text-white/60 hover:text-white"
             >

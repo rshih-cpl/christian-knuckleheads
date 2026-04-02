@@ -50,7 +50,7 @@ export default function AboutPage() {
                   alt="Mitch O'Neil, author of Daily Devotions for Christian Knuckleheads"
                   fill
                   sizes="(max-width: 1024px) 100vw, 40vw"
-                  className="object-cover grayscale contrast-125"
+                  className="object-cover"
                   priority
                 />
               </div>

@@ -1,0 +1,23 @@
+Grade 8.6->9.0: fix all P1 findings, upgrade Footer/BottomNav/Merch/Infrastructure to 9+
+
+P1 fixes:
+- Remove border-radius from Button, Toast, ChatWidget (design system consistency)
+- Standardize email domain to christianknuckleheads.com across all files
+- Delete dead images.ts, fix books.ts coverImage to local path
+- Add @keyframes slideIn for Toast animation
+- Remove grayscale filter from author photo on Home and About pages
+
+Component upgrades:
+- Footer: grid layout for responsive mobile stacking, extract FooterClient
+  with ShareButton (Web Share API) and FooterNav (aria-current)
+- BottomNav: square pill active indicator, aria-current="page"
+- Merch: category counts on filter chips, desaturated product images with
+  hover-to-saturate + Notify Me overlay, empty state, aria-live on grid
+- Data layer: typed comingSoon on retailers, clean placeholder URLs
+
+P2 polish:
+- Add loading.tsx and error.tsx route segment files
+- Add OG/Twitter metadata and favicon to layout.tsx
+- Add in-memory rate limiting to API routes
+- Fix package.json next/eslint-config-next versions to match installed
+- Add .env.example

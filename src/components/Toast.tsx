@@ -44,7 +44,7 @@ export function ToastProvider({ children }: { children: React.ReactNode }) {
           <div
             key={toast.id}
             role="alert"
-            className="flex items-center gap-3 px-4 py-3 bg-[var(--color-surface-container-highest)] text-[var(--color-on-surface)] rounded-[4px] shadow-ambient animate-[slideIn_0.2s_ease-out]"
+            className="flex items-center gap-3 px-4 py-3 bg-[var(--color-surface-container-highest)] text-[var(--color-on-surface)] shadow-ambient animate-[slideIn_0.2s_ease-out]"
           >
             <span className="material-symbols-outlined text-lg" aria-hidden="true">
               {toast.type === "success"

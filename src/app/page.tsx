@@ -217,7 +217,7 @@ export default function HomePage() {
               alt="Meet the Chief Knucklehead"
               fill
               sizes="(max-width: 768px) 100vw, 50vw"
-              className="object-cover grayscale contrast-125"
+              className="object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-surface-container-low)] via-transparent to-transparent" />
           </div>
@@ -275,7 +275,7 @@ export default function HomePage() {
                   Need to talk?
                 </span>
                 <a
-                  href="mailto:hello@cknuckleheads.com"
+                  href="mailto:hello@christianknuckleheads.com"
                   className="text-[10px] text-white/40 hover:text-[var(--color-primary)] tracking-widest transition-colors uppercase font-bold"
                 >
                   Start a Conversation

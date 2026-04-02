@@ -16,8 +16,16 @@ export function ProductCard({ product }: ProductCardProps) {
           alt={product.name}
           fill
           sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
-          className="object-cover transition-transform duration-700 group-hover:scale-105"
+          className="object-cover transition-all duration-700 saturate-[.7] group-hover:saturate-100 group-hover:scale-105"
         />
+        <a
+          href="#merch-newsletter-heading"
+          className="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+        >
+          <span className="bg-[var(--color-primary-container)] text-[var(--color-on-primary-container)] px-6 py-3 text-xs font-bold uppercase tracking-widest">
+            Notify Me
+          </span>
+        </a>
       </div>
       <div className="p-4 lg:p-6">
         <h3 className="text-title-sm text-[var(--color-on-surface)]">

@@ -14,6 +14,32 @@ export const metadata: Metadata = {
   description:
     "Real faith for real people who mess up. Daily devotionals, community, and merchandise for the beautifully imperfect.",
   metadataBase: new URL("https://christianknuckleheads.com"),
+  icons: {
+    icon: "/images/ck-logo-transparent.png",
+    apple: "/images/ck-logo-transparent.png",
+  },
+  openGraph: {
+    type: "website",
+    siteName: "Christian Knuckleheads",
+    title: "Christian Knuckleheads | Iron & Ink",
+    description:
+      "Real faith for real people who mess up. Daily devotionals, community, and merchandise for the beautifully imperfect.",
+    images: [
+      {
+        url: "/images/book-cover.png",
+        width: 500,
+        height: 667,
+        alt: "Daily Devotions for Christian Knuckleheads book cover",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Christian Knuckleheads | Iron & Ink",
+    description:
+      "Real faith for real people who mess up. Daily devotionals, community, and merchandise.",
+    images: ["/images/book-cover.png"],
+  },
 };
 
 export default function RootLayout({

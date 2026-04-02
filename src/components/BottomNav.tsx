@@ -29,8 +29,11 @@ export function BottomNav() {
           <Link
             key={tab.href}
             href={tab.href}
-            className={`flex flex-col items-center justify-center ${
-              active ? "text-[var(--color-primary-container)] font-bold" : "text-white/50"
+            aria-current={active ? "page" : undefined}
+            className={`flex flex-col items-center justify-center px-4 py-1.5 transition-colors ${
+              active
+                ? "text-[var(--color-primary-container)] font-bold bg-[var(--color-primary-container)]/15"
+                : "text-white/50"
             }`}
           >
             <span
