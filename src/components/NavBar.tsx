@@ -71,7 +71,7 @@ export function NavBar() {
         role="banner"
       >
         <nav
-          className="flex items-center justify-between w-full px-6 lg:px-8 py-3"
+          className="flex items-center justify-between w-full px-6 lg:px-8 py-4"
           role="navigation"
           aria-label="Main navigation"
         >
@@ -79,9 +79,9 @@ export function NavBar() {
             <Image
               src="/images/ck-logo.png"
               alt="Christian Knuckleheads"
-              width={160}
-              height={64}
-              className="h-14 lg:h-16 w-auto mix-blend-lighten"
+              width={200}
+              height={80}
+              className="h-16 lg:h-20 w-auto mix-blend-lighten"
               priority
             />
           </Link>
@@ -130,7 +130,7 @@ export function NavBar() {
       </header>
 
       {/* Spacer for fixed nav */}
-      <div className="h-[76px] lg:h-[88px]" />
+      <div className="h-[96px] lg:h-[112px]" />
 
       {isOpen && (
         <div

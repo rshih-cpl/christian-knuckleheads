@@ -54,9 +54,10 @@ export default async function BookPage({
       />
 
       {/* Hero */}
-      <section className="relative flex flex-col md:flex-row items-center px-6 md:px-8 py-16 md:py-24 gap-12 md:gap-16 overflow-hidden">
+      <section className="relative px-6 md:px-24 py-16 md:py-24 overflow-hidden">
         <div className="absolute top-0 right-0 w-1/2 h-full bg-[var(--color-surface-container-low)] -z-10 translate-x-1/4 skew-x-[-12deg] hidden md:block" />
-        <div className="w-full md:w-1/2 flex flex-col gap-6 md:gap-8 max-w-7xl mx-auto md:mx-0">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12 md:gap-16">
+        <div className="w-full md:w-1/2 flex flex-col gap-6 md:gap-8">
           <div className="flex items-center gap-3">
             <span className="w-12 h-[1px] bg-[var(--color-primary-container)]" />
             <span className="text-title-sm text-[var(--color-primary)]">
@@ -100,6 +101,7 @@ export default async function BookPage({
             />
           </div>
           <div className="absolute -top-12 -right-12 w-64 h-64 border-[20px] border-[var(--color-surface-container-highest)] -z-0 opacity-20 hidden md:block" />
+        </div>
         </div>
       </section>
 
