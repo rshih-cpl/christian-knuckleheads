@@ -81,7 +81,7 @@ export function NavBar() {
               alt="Christian Knuckleheads"
               width={160}
               height={64}
-              className="h-14 lg:h-16 w-auto"
+              className="h-14 lg:h-16 w-auto mix-blend-lighten"
               priority
             />
           </Link>

@@ -14,7 +14,7 @@ export function Footer() {
             alt="Christian Knuckleheads"
             width={120}
             height={48}
-            className="h-12 w-auto mb-6"
+            className="h-12 w-auto mb-6 mix-blend-lighten"
           />
           <p className="font-[family-name:var(--font-body)] text-white/60">
             A community for those who know they&apos;re broken and aren&apos;t
