@@ -77,11 +77,11 @@ export function NavBar() {
         >
           <Link href="/" className="shrink-0">
             <Image
-              src="/images/ck-logo.png"
+              src="/images/ck-logo-transparent.png"
               alt="Christian Knuckleheads"
               width={200}
               height={80}
-              className="h-16 lg:h-20 w-auto mix-blend-lighten"
+              className="h-16 lg:h-20 w-auto"
               priority
             />
           </Link>

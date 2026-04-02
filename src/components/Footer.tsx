@@ -10,11 +10,11 @@ export function Footer() {
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-12">
         <div className="max-w-xs">
           <Image
-            src="/images/ck-logo.png"
+            src="/images/ck-logo-transparent.png"
             alt="Christian Knuckleheads"
             width={120}
             height={48}
-            className="h-12 w-auto mb-6 mix-blend-lighten"
+            className="h-12 w-auto mb-6"
           />
           <p className="font-[family-name:var(--font-body)] text-white/60">
             A community for those who know they&apos;re broken and aren&apos;t

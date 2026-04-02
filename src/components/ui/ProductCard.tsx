@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import { useToast } from "@/components/Toast";
 import type { Product } from "@/lib/products";
 
 interface ProductCardProps {
@@ -9,8 +8,6 @@ interface ProductCardProps {
 }
 
 export function ProductCard({ product }: ProductCardProps) {
-  const { addToast } = useToast();
-
   return (
     <article className="group bg-[var(--color-surface)] hover:bg-[var(--color-surface-container-high)] transition-colors duration-200 overflow-hidden">
       <div className="aspect-[3/4] bg-[var(--color-surface-container-low)] relative overflow-hidden">
@@ -33,12 +30,9 @@ export function ProductCard({ product }: ProductCardProps) {
           <span className="text-body-md font-semibold text-[var(--color-on-surface)]">
             ${product.price}
           </span>
-          <button
-            onClick={() => addToast(`${product.name} added to bag`)}
-            className="border border-[var(--color-primary-container)] text-[var(--color-on-surface)] px-4 py-2 text-xs font-bold uppercase tracking-widest hover:bg-[var(--color-primary-container)] hover:text-[var(--color-on-primary-container)] transition-colors"
-          >
-            Add
-          </button>
+          <span className="text-[10px] text-[var(--color-primary-container)] uppercase tracking-widest font-bold">
+            Coming Soon
+          </span>
         </div>
       </div>
     </article>
