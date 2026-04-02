@@ -55,53 +55,51 @@ export default async function BookPage({
 
       {/* Hero */}
       <section className="relative px-6 md:px-24 py-16 md:py-24 overflow-hidden">
-        <div className="absolute top-0 right-0 w-1/2 h-full bg-[var(--color-surface-container-low)] -z-10 translate-x-1/4 skew-x-[-12deg] hidden md:block" />
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12 md:gap-16">
-        <div className="w-full md:w-1/2 flex flex-col gap-6 md:gap-8">
-          <div className="flex items-center gap-3">
-            <span className="w-12 h-[1px] bg-[var(--color-primary-container)]" />
-            <span className="text-title-sm text-[var(--color-primary)]">
-              Now Available
-            </span>
+          <div className="w-full md:w-1/2 flex flex-col gap-6 md:gap-8">
+            <div className="flex items-center gap-3">
+              <span className="w-12 h-[1px] bg-[var(--color-primary-container)]" />
+              <span className="text-title-sm text-[var(--color-primary)]">
+                Now Available
+              </span>
+            </div>
+            <h1 className="font-[family-name:var(--font-headline)] text-[2.5rem] md:text-[5.5rem] leading-[0.9] font-extrabold tracking-tighter">
+              Wisdom for the <br />
+              <span className="italic text-[var(--color-primary-container)]">
+                rest of us.
+              </span>
+            </h1>
+            <p className="text-body-lg text-[var(--color-secondary)] max-w-md leading-relaxed">
+              A raw, unfiltered journey through faith, failure, and the messy
+              reality of being human. No polish, just the Gospel in the trenches.
+            </p>
+            <div className="flex gap-4 mt-4">
+              <Link
+                href="#direct-purchase"
+                className="px-8 md:px-10 py-4 bg-[var(--color-primary-container)] text-[var(--color-on-primary-container)] font-bold hover:brightness-110 transition-all uppercase tracking-widest text-sm text-center"
+              >
+                Order Now
+              </Link>
+              <Link
+                href="#inside"
+                className="px-8 md:px-10 py-4 border border-[var(--color-outline)] text-[var(--color-on-surface)] font-bold hover:bg-[var(--color-surface-container-high)] transition-all uppercase tracking-widest text-sm text-center"
+              >
+                Read Excerpt
+              </Link>
+            </div>
           </div>
-          <h1 className="font-[family-name:var(--font-headline)] text-[2.5rem] md:text-[5.5rem] leading-[0.9] font-extrabold tracking-tighter">
-            Wisdom for the <br />
-            <span className="italic text-[var(--color-primary-container)]">
-              rest of us.
-            </span>
-          </h1>
-          <p className="text-body-lg text-[var(--color-secondary)] max-w-md leading-relaxed">
-            A raw, unfiltered journey through faith, failure, and the messy
-            reality of being human. No polish, just the Gospel in the trenches.
-          </p>
-          <div className="flex gap-4 mt-4">
-            <Link
-              href="#direct-purchase"
-              className="px-8 md:px-10 py-4 bg-[var(--color-primary-container)] text-[var(--color-on-primary-container)] font-bold hover:brightness-110 transition-all uppercase tracking-widest text-sm text-center"
-            >
-              Order Now
-            </Link>
-            <Link
-              href="#inside"
-              className="px-8 md:px-10 py-4 border border-[var(--color-outline)] text-[var(--color-on-surface)] font-bold hover:bg-[var(--color-surface-container-high)] transition-all uppercase tracking-widest text-sm text-center"
-            >
-              Read Excerpt
-            </Link>
+          <div className="w-full md:w-1/2 relative flex justify-center">
+            <div className="relative z-10 shadow-[40px_40px_80px_rgba(0,0,0,0.6)]">
+              <Image
+                src="/images/book-cover.png"
+                alt="Daily Devotions for Christian Knuckleheads book cover"
+                width={400}
+                height={533}
+                className="w-[280px] md:w-[400px] h-auto"
+                priority
+              />
+            </div>
           </div>
-        </div>
-        <div className="w-full md:w-1/2 relative flex justify-center">
-          <div className="relative z-10 shadow-[40px_40px_80px_rgba(0,0,0,0.6)]">
-            <Image
-              src="/images/book-cover.png"
-              alt="Daily Devotions for Christian Knuckleheads book cover"
-              width={400}
-              height={533}
-              className="w-[280px] md:w-[400px] h-auto"
-              priority
-            />
-          </div>
-          <div className="absolute -top-12 -right-12 w-64 h-64 border-[20px] border-[var(--color-surface-container-highest)] -z-0 opacity-20 hidden md:block" />
-        </div>
         </div>
       </section>
 

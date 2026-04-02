@@ -19,7 +19,7 @@ export default function HomePage() {
       />
 
       {/* Hero */}
-      <header className="relative pt-8 pb-24 px-6 md:px-24 min-h-[85vh] flex items-center overflow-hidden">
+      <header className="relative pt-8 pb-24 px-6 md:px-24 min-h-screen flex items-center overflow-hidden">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 w-full max-w-7xl mx-auto">
           <div className="md:col-span-7 flex flex-col justify-center">
             <div className="field-tag mb-8">

@@ -4,7 +4,7 @@ import Image from "next/image";
 export function Footer() {
   return (
     <footer
-      className="bg-[#1A1C1E] w-full px-6 lg:px-8 py-16 mt-24 border-t border-[#D32F2F]/15"
+      className="bg-[#1A1C1E] w-full px-6 lg:px-8 py-16 mt-24 border-t border-[var(--color-primary-container)]/15"
       role="contentinfo"
     >
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-12">
@@ -12,9 +12,9 @@ export function Footer() {
           <Image
             src="/images/ck-logo-transparent.png"
             alt="Christian Knuckleheads"
-            width={120}
-            height={48}
-            className="h-12 w-auto mb-6"
+            width={200}
+            height={80}
+            className="h-20 w-auto mb-6"
           />
           <p className="font-[family-name:var(--font-body)] text-white/60">
             A community for those who know they&apos;re broken and aren&apos;t
@@ -22,26 +22,26 @@ export function Footer() {
           </p>
         </div>
 
-        <div className="flex flex-wrap gap-x-24 gap-y-12">
+          <div className="flex flex-wrap gap-x-16 gap-y-12">
           <nav className="flex flex-col gap-4" aria-label="Footer resources">
             <span className="text-[10px] tracking-[0.2em] uppercase text-[var(--color-primary)] font-[family-name:var(--font-body)] font-bold mb-2">
               Resources
             </span>
             <Link
               href="/books/daily-devotionals"
-              className="text-white/60 hover:text-[#D32F2F] transition-colors font-[family-name:var(--font-body)]"
+              className="text-white/60 hover:text-[var(--color-primary-container)] transition-colors font-[family-name:var(--font-body)]"
             >
               The Book
             </Link>
             <Link
               href="/merch"
-              className="text-white/60 hover:text-[#D32F2F] transition-colors font-[family-name:var(--font-body)]"
+              className="text-white/60 hover:text-[var(--color-primary-container)] transition-colors font-[family-name:var(--font-body)]"
             >
               Merch
             </Link>
             <Link
               href="/about"
-              className="text-white/60 hover:text-[#D32F2F] transition-colors font-[family-name:var(--font-body)]"
+              className="text-white/60 hover:text-[var(--color-primary-container)] transition-colors font-[family-name:var(--font-body)]"
             >
               About
             </Link>
@@ -52,21 +52,35 @@ export function Footer() {
             </span>
             <a
               href="#"
-              className="text-white/60 hover:text-[#D32F2F] transition-colors font-[family-name:var(--font-body)]"
+              className="text-white/60 hover:text-[var(--color-primary-container)] transition-colors font-[family-name:var(--font-body)]"
             >
               Privacy Policy
             </a>
             <a
               href="#"
-              className="text-white/60 hover:text-[#D32F2F] transition-colors font-[family-name:var(--font-body)]"
+              className="text-white/60 hover:text-[var(--color-primary-container)] transition-colors font-[family-name:var(--font-body)]"
             >
               Terms of Service
             </a>
             <a
               href="mailto:hello@cknuckleheads.com"
-              className="text-white/60 hover:text-[#D32F2F] transition-colors font-[family-name:var(--font-body)]"
+              className="text-white/60 hover:text-[var(--color-primary-container)] transition-colors font-[family-name:var(--font-body)]"
             >
               Contact
+            </a>
+          </div>
+          <div className="flex flex-col gap-4">
+            <span className="text-[10px] tracking-[0.2em] uppercase text-[var(--color-primary)] font-[family-name:var(--font-body)] font-bold mb-2">
+              Field Office
+            </span>
+            <span className="text-white/60 font-[family-name:var(--font-body)]">
+              Nashville, Tennessee
+            </span>
+            <a
+              href="mailto:hello@cknuckleheads.com"
+              className="text-white/60 hover:text-[var(--color-primary-container)] transition-colors font-[family-name:var(--font-body)]"
+            >
+              hello@cknuckleheads.com
             </a>
           </div>
         </div>

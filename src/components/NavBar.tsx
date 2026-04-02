@@ -71,7 +71,7 @@ export function NavBar() {
         role="banner"
       >
         <nav
-          className="flex items-center justify-between w-full px-6 lg:px-8 py-4"
+          className="flex items-center justify-between w-full px-6 lg:px-8 py-6"
           role="navigation"
           aria-label="Main navigation"
         >
@@ -79,9 +79,9 @@ export function NavBar() {
             <Image
               src="/images/ck-logo-transparent.png"
               alt="Christian Knuckleheads"
-              width={200}
-              height={80}
-              className="h-16 lg:h-20 w-auto"
+              width={320}
+              height={128}
+              className="h-28 lg:h-32 w-auto"
               priority
             />
           </Link>
@@ -92,9 +92,9 @@ export function NavBar() {
                 key={link.href}
                 href={link.href}
                 aria-current={isActive(link.href) ? "page" : undefined}
-                className={`font-[family-name:var(--font-headline)] tracking-tight transition-colors duration-300 ${
+                className={`text-lg font-[family-name:var(--font-headline)] tracking-tight transition-colors duration-300 ${
                   isActive(link.href)
-                    ? "text-[#D32F2F] border-b-2 border-[#D32F2F] pb-1"
+                    ? "text-[var(--color-primary-container)] border-b-2 border-[var(--color-primary-container)] pb-1"
                     : "text-white/70 hover:text-white"
                 }`}
               >
@@ -130,7 +130,7 @@ export function NavBar() {
       </header>
 
       {/* Spacer for fixed nav */}
-      <div className="h-[96px] lg:h-[112px]" />
+      <div className="h-[140px] lg:h-[160px]" />
 
       {isOpen && (
         <div
@@ -173,7 +173,7 @@ export function NavBar() {
                 aria-current={isActive(link.href) ? "page" : undefined}
                 className={`text-2xl font-[family-name:var(--font-headline)] tracking-tight transition-colors duration-300 ${
                   isActive(link.href)
-                    ? "text-[#D32F2F] font-bold"
+                    ? "text-[var(--color-primary-container)] font-bold"
                     : "text-white/70 hover:text-white"
                 }`}
               >

@@ -20,7 +20,7 @@ export function BottomNav() {
 
   return (
     <nav
-      className="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center px-4 py-3 bg-[var(--color-surface)]/90 backdrop-blur-xl z-50 border-t border-[#D32F2F]/15"
+      className="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center px-4 py-3 bg-[var(--color-surface)]/90 backdrop-blur-xl z-50 border-t border-[var(--color-primary-container)]/15"
       aria-label="Mobile navigation"
     >
       {tabs.map((tab) => {
@@ -30,7 +30,7 @@ export function BottomNav() {
             key={tab.href}
             href={tab.href}
             className={`flex flex-col items-center justify-center ${
-              active ? "text-[#D32F2F] font-bold" : "text-white/50"
+              active ? "text-[var(--color-primary-container)] font-bold" : "text-white/50"
             }`}
           >
             <span
